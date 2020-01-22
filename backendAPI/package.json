@@ -1,0 +1,31 @@
+{
+  "name": "carlistfilterwithpages",
+  "version": "1.0.0",
+  "description": "Project requested by ARIMA to show my skills",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UrkoLekuona/carListFilterWithPages.git"
+  },
+  "keywords": [
+    "car",
+    "list",
+    "page",
+    "paginator",
+    "arima"
+  ],
+  "author": "Urko Lekuona",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UrkoLekuona/carListFilterWithPages/issues"
+  },
+  "homepage": "https://github.com/UrkoLekuona/carListFilterWithPages#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "moment": "^2.24.0",
+    "mongodb": "^3.5.2"
+  }
+}
