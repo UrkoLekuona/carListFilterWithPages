@@ -1,0 +1,13 @@
+table {
+  width: 100%;
+}
+
+.fullTableContainer {
+  margin: auto;
+  width: 90%;
+}
+
+.tableContainer {
+  max-height: 80vh;
+  overflow: auto;
+}

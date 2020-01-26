@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/UrkoLekuona/carListFilterWithPages#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "moment": "^2.24.0",
     "mongodb": "^3.5.2"

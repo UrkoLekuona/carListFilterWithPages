@@ -1,8 +1,11 @@
 var express = require('express'),
+    cors = require('cors'),
     MongoClient = require('mongodb').MongoClient,
     moment = require('moment')
 
 var app = express();
+
+app.use(cors());
 
 // Connection URL
 const url = 'mongodb://localhost:27017';
@@ -27,7 +30,8 @@ MongoClient.connect(url + '/' + dbName, {
 // Error function
 function error(err, status, res) {
     console.log("Error " + status + ": " + err);
-    return res.status(status).send({ status: err }).end();
+    res.statusMessage = err;
+    return res.status(status).end();
 }
 
 // Date validation middleware
@@ -38,15 +42,15 @@ function validateDates(req, res, next) {
     try {
         if (req.query.from) {
             from = moment(req.query.from, 'YYYY/MM/DD', true);
-            if (!from.isValid()) error('Bad request: Invalid dates', 400, res);
+            if (!from.isValid()) error('Bad request: Invalid \'from\' date', 400, res);
         }
         
         if (req.query.to) {
             to = moment(req.query.to, 'YYYY/MM/DD', true);
-            if (!to.isValid()) error('Bad request: Invalid dates', 400, res);
+            if (!to.isValid()) error('Bad request: Invalid \'to\' date', 400, res);
         }
         
-        if (req.query.from && req.query.to && from.isAfter(to)) error('Bad request: Invalid dates', 400, res);
+        if (req.query.from && req.query.to && from.isAfter(to)) error('Bad request: Invalid date order', 400, res);
     } catch {
         error('Bad request: Invalid dates', 400, res);
     }
